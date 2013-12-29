@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursoMVC4.Infraestructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,7 @@ namespace CursoMVC4
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ModelMetadataProviders.Current = new ConventionMetaDataProvider();
         }
     }
 }
