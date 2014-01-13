@@ -7,14 +7,20 @@ using System.Web.Mvc;
 
 namespace CursoMVC4.Infraestructure
 {
-    public class ConventionMetaDataProvider :DataAnnotationsModelMetadataProvider
+    public class ConventionMetaDataProvider : DataAnnotationsModelMetadataProvider
     {
-        protected override ModelMetadata CreateMetadata(IEnumerable<Attribute> attributes,Type containerType,Func<object> modelAccessor,Type modelType,string propertyName)
+        protected override ModelMetadata CreateMetadata(IEnumerable<Attribute> attributes, Type containerType, Func<object> modelAccessor, Type modelType, string propertyName)
         {
-            var meta = base.CreateMetadata(attributes,containerType, modelAccessor,modelType, propertyName);
-            if (meta.DisplayName == null)
-                meta.DisplayName = meta.PropertyName.ToSeparatedWords();
-            return meta;
+            var metadata = base.CreateMetadata(attributes, 
+                containerType, modelAccessor, modelType, propertyName);
+
+            if (metadata.DisplayName == null) 
+            {
+                var nombre = metadata.PropertyName.ToSeparatedWords();
+                metadata.DisplayName = nombre;
+            }
+
+            return metadata;
         }
     }
 

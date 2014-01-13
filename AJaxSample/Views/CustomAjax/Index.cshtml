@@ -1,0 +1,31 @@
+@model IEnumerable<string>
+@{
+    ViewBag.Title = "Ajax with jQuery";
+}
+
+@section scripts {
+    <script type="text/javascript" 
+            src="@Url.Content("~/scripts/AjaxDemo.js")">
+    </script>
+}
+
+<h2>Using Ajax with jQuery</h2>
+<h4>Comments</h4> 
+   
+<ul id="comments">
+@foreach (var comment in Model) {
+    <li>@comment</li>
+}
+</ul>
+
+<form method="post" id="commentForm" action="@Url.Action("AddComment")">
+    @Html.TextArea("Comment", new { rows = 5, cols = 50 })
+	<br />
+    <input type="submit" value="Add Comment" />
+</form>
+
+<br />
+
+@Html.ActionLink("Show the privacy Policy", "PrivacyPolicy", null, new { id = "privacyLink" })
+
+<div id="privacy"></div>

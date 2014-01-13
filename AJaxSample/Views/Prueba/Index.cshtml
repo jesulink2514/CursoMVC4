@@ -1,0 +1,37 @@
+﻿@model List<String>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    Algo de texto
+</p>
+
+<ul id="comentarios">
+    @foreach (var coment in Model) 
+    {
+        <li>@coment</li>
+    }
+</ul>
+<div>
+    @using (Ajax.BeginForm("Comentar", "Prueba", new AjaxOptions() 
+    {
+        InsertionMode=InsertionMode.InsertAfter,
+        UpdateTargetId="comentarios"
+    })) 
+    {
+        <p>Ingrese su comentario</p>
+        <input type="text" name="comentario" />
+        <input type="submit" value="comentar" />
+    }
+</div>
+
+@Ajax.ActionLink("Ver Politica de Privacidad", "Politica", "Prueba",new AjaxOptions(){InsertionMode=InsertionMode.Replace,UpdateTargetId = "target"})
+
+<div id="target">
+
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}

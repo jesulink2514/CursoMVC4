@@ -1,0 +1,33 @@
+@model IEnumerable<AjaxSamples.Models.Speaker>
+@{
+	ViewBag.Title = "JSON Example";
+}
+@section scripts{
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/content/speakers.css")" />
+    <script type="text/javascript" src="@Url.Content("~/scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/Speakers.js")"></script>
+}
+<h2>Speakers</h2>
+
+<ul class="speakers">
+    @foreach (var speaker in Model) {
+    <li>
+        @Html.ActionLink(speaker.FullName, "Details", new { id = speaker.Id })
+    </li>
+    }
+</ul>
+
+<img id="indicator" src="@Url.Content("~/content/load.gif")" alt="loading..." style="display:none" />
+
+<div class="selected-speaker" style="display:none">
+</div>
+
+<br style="clear:both" />
+
+<script id="speakerTemplate" type="text/x-jquery-tmpl">
+    <img src="${PictureUrl}" alt="Speaker image" class="speaker-pic" />
+    <p class="speaker-bio">
+        ${Bio}
+    </p>
+    <br style="clear:both;" />
+</script>

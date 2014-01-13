@@ -1,0 +1,16 @@
+﻿@model IEnumerable<RoutingSample.Models.ProductGrouping>
+@{
+    ViewBag.Title = "Category";
+}
+
+<h2>Category</h2>
+@foreach (var cat in Model) 
+{
+    <div>
+        <h3>@cat.Category</h3>
+        @foreach (var product in cat.Products) 
+        {
+            @Html.DisplayFor(m => product)
+        }
+    </div>
+}

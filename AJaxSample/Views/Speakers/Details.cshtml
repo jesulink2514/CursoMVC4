@@ -1,0 +1,24 @@
+@model AjaxSamples.Models.Speaker
+@{
+	ViewBag.Title = "Speaker Details";
+}
+@section head {
+    <style type="text/css">
+        .speaker img 
+        {
+        	float: left;
+        	margin: 5px;
+        }
+         
+    </style>
+}
+
+<h2>Speaker Details: @Model.FullName</h2>
+
+<p class="speaker">
+    <img src="@Model.PictureUrl" alt="@Model.FullName" />
+    <p class="speaker-bio">@Model.Bio</p>
+</p>
+
+<br style="clear:both" />
+@Html.ActionLink("Back to speakers", "index")

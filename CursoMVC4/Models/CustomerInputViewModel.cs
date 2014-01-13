@@ -7,20 +7,17 @@ using System.Web;
 
 namespace CursoMVC4.Models
 {
-    public class CreateCustomerViewModel
+    public class CustomerInputViewModel
     {
         [Required]
         public string FirstName { get; set; }
-
         [Required]
         public string LastName { get; set; }
-
-        public bool IsActive { get; set; }
-
         [Required]
+        public bool IsActive { get; set; }
         public Address Address { get; set; }
-
-        [ShouldBeTrue(ErrorMessage="You should accept Terms.")]
+        
+        [ShouldBeTrue(ErrorMessage="You should accept terms.")]
         public bool AcceptTerms { get; set; }
     }
 }

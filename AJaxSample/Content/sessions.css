@@ -1,0 +1,45 @@
+﻿fieldset
+{
+	border: solid 1px #999;
+}
+
+fieldset legend
+{
+	background-color: Black;
+	color: #fff;
+	font-weight: bold;
+}
+
+fieldset label
+{
+	display: block;
+	margin-top: 5px;
+}
+
+fieldset input[type="submit"]
+{
+	float: left;	
+	margin-top: 20px;	
+}
+
+table#sessions
+{
+	margin: 5px;
+	padding: 2px;	
+}
+
+table#sessions tr th
+{
+	background-color: #577;
+	color: White;
+	font-weight: normal;
+	font-size: 0.9em;
+	border: solid 1px #366;
+}
+
+table#sessions tr td
+{
+	padding: 5px;
+	background-color: #eee;
+	border: solid 1px #ccc;
+}

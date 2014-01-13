@@ -1,4 +1,4 @@
-﻿@model CursoMVC4.Models.CreateCustomerViewModel
+﻿@model CursoMVC4.Models.CustomerInputViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -10,7 +10,9 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">        
+    <div class="form-horizontal">
+        <h4>Create a Customer</h4>
+        <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
@@ -26,21 +28,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.LastName)
                 @Html.ValidationMessageFor(model => model.LastName)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address.Line1, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Address.Line1)
-                @Html.ValidationMessageFor(model => model.Address.Line1)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address.ZipCode, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Address.ZipCode)
-                @Html.ValidationMessageFor(model => model.Address.ZipCode)
             </div>
         </div>
 
@@ -71,8 +58,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
+@section scripts{
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
         $.validator.addMethod("shouldbetrue", function (value, element, params) {
@@ -85,3 +71,4 @@
         });
     </script>
 }
+
