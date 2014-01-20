@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingSample", "RoutingSam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingSample.Tests", "RoutingSample.Tests\RoutingSample.Tests.csproj", "{547E5F83-8087-43CA-B876-DFB08805F71E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMapper", "AutoMapper\AutoMapper.csproj", "{543F1C18-24FA-4FEA-97E9-04639F93B981}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{547E5F83-8087-43CA-B876-DFB08805F71E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{547E5F83-8087-43CA-B876-DFB08805F71E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{547E5F83-8087-43CA-B876-DFB08805F71E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543F1C18-24FA-4FEA-97E9-04639F93B981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543F1C18-24FA-4FEA-97E9-04639F93B981}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543F1C18-24FA-4FEA-97E9-04639F93B981}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543F1C18-24FA-4FEA-97E9-04639F93B981}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

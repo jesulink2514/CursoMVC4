@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Core.Model.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Customers: 
+</h2>
+<table class="table">
+    <tr>
+        <th>Customer</th>
+        <th>Status</th>
+        <th>Total Amount</th>
+        <th>Address</th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>@(item.Name.First + " " + item.Name.Middle + " " + item.Name.Last)</td>
+        <td>@item.Status</td>
+        <td>@item.GetTotalAmountPaid()</td>
+        <td>
+            @item.ShippingAddress.Line1,
+            @item.ShippingAddress.Line2,
+            @item.ShippingAddress.City,
+            @item.ShippingAddress.State.DisplayName @item.ShippingAddress.Zip
+        </td>
+        <td>@Html.ActionLink("Details", "Details", new {id=item.Id })</td>
+    </tr>
+}
+</table>
