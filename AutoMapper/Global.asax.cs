@@ -1,5 +1,4 @@
-﻿using AutoMapper.Infraestructure.Mapping;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,7 +17,7 @@ namespace AutoMapper
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Mapper.Initialize(m => m.AddProfile<MainProfile>());
+            //Mapper.Initialize(m => m.AddProfile<MainProfile>());//
         }
     }
 }

@@ -1,31 +1,13 @@
 ﻿@model IEnumerable<CursoMVC4.Models.CustomerViewModel>
-
+@using GridMvc.Html
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-<table class="table">
-    <tr>
-        <th>Full Name</th>
-        <th>Address</th>
-        <th>Last Order Date</th>
-        <th>Is Active?</th>
-    </tr>
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @item.FullName 
-        </td>
-        <td>
-            @item.Address
-        </td>
-        <td>
-            @item.LastOrderDate.ToShortDateString()
-        </td>
-        <td>
-            @Html.DisplayFor(m => item.IsActive)
-        </td>
-    </tr>
-}
-</table>
+<h2>Customers List</h2>
+@Html.Grid(Model).Columns(cols =>
+{
+    cols.Add(m => m.FullName).SetWidth(250).Sortable(true).Filterable(true);
+    cols.Add(m => m.Address).Sortable(true).Filterable(true);
+    cols.Add(m => m.LastOrderDate).Sortable(true).Filterable(true);
+    cols.Add().RenderValueAs(c => Html.CheckBoxFor(m=> c.IsActive)).Encoded(false);
+}).WithPaging(10)

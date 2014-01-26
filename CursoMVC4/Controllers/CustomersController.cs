@@ -8,31 +8,36 @@ using System.Web.Mvc;
 
 namespace CursoMVC4.Controllers
 {
-    public class CustomersController : Controller
+    public partial class CustomersController : Controller
     {
-        private CustomerViewModelMapper mapper = new CustomerViewModelMapper();
+        private readonly ICustomerViewModelMapper mapper;
+
+        public CustomersController(ICustomerViewModelMapper mapper)
+        {
+            this.mapper = mapper;
+        }
         //
         // GET: /Customers/
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             var customers = mapper.GetAll();
             return View(customers);
         }
 
         //GET: /Customers/Create
-        public ActionResult Create() 
+        public virtual ActionResult Create() 
         {
             return View(new CustomerInputViewModel());
         }
 
         //POST: /Customers/Create
         [HttpPost]
-        public ActionResult Create(CustomerInputViewModel customer)
+        public virtual ActionResult Create(CustomerInputViewModel customer)
         {
             if (ModelState.IsValid) 
             {
                 //agrego a la DB
-                return RedirectToAction("Index");
+                return RedirectToAction(MVC.Home.Index());
             }
             return View(customer);
         }

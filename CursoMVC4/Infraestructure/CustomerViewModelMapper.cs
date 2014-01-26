@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CursoMVC4.Infraestructure
 {
-    public class CustomerViewModelMapper
+    public class CustomerViewModelMapper : ICustomerViewModelMapper
     {
         private MyDbContext _context = new MyDbContext();
 
@@ -18,8 +18,13 @@ namespace CursoMVC4.Infraestructure
                     FullName = String.Format("{0} {1}", c.FirstName, c.LastName),
                     Address = String.Format("{0} ZIP : {1}", c.Address.Line1, c.Address.ZipCode),
                     IsActive = c.IsActive,
-                    LastOrderDate = c.Orders.OrderByDescending(o => o.OrderDate).First().OrderDate
+                    LastOrderDate = c.Orders.Any()?c.Orders.OrderByDescending(o => o.OrderDate).First().OrderDate:DateTime.Now
                 }).ToList();
         }
+    }
+
+    public interface ICustomerViewModelMapper 
+    {
+        List<CustomerViewModel> GetAll();
     }
 }

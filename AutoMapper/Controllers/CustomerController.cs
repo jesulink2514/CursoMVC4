@@ -34,8 +34,7 @@ namespace AutoMapper.Controllers
         public ActionResult Details(int id)
         {
             var customer = _customerRepository.GetById(id);
-            var cust= Mapper.Map<CustomerViewModel>(customer);
-            return View(cust);
+            return View(customer);
         }
     }
 }
