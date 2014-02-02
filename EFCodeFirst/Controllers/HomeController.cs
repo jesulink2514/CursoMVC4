@@ -15,8 +15,8 @@ namespace EFCodeFirst.Controllers
         public ActionResult Index()
         {
             var schools = context.Schools.Where(s=> s.Name.StartsWith("s")).ToList();
-
-
+            schools.First().Name = "Nombre x";
+            context.SaveChanges();
 
             return View(schools);
         }
